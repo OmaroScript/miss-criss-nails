@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ffacec;
+  --color-on-primary: #5d0056;
+  --color-primary-container: #ff38ed;
+  --color-on-primary-container: #590052;
+  --color-secondary: #e9c349;
+  --color-on-secondary: #3c2f00;
+  
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #dcbed1;
+  
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+  --color-outline: #a3899b;
+  --color-outline-variant: #564050;
+  --color-on-tertiary-fixed-variant: #474746;
+  --color-error: #ffb4ab;
+
+  --font-display: "Bodoni Moda", serif;
+  --font-body: "Syne", sans-serif;
+  --font-label: "Space Grotesk", sans-serif;
+}
+
+/* Custom CSS helper utilities for Glassmorphism & High-Contrast */
+.glass-card {
+  background: rgba(19, 19, 19, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(233, 195, 73, 0.25);
+  border-left: 1px solid rgba(233, 195, 73, 0.25);
+  border-right: 1px solid rgba(233, 195, 73, 0.05);
+  border-bottom: 1px solid rgba(233, 195, 73, 0.05);
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 15px rgba(255, 172, 236, 0.4);
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 15px rgba(233, 195, 73, 0.3);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  background-color: #131313;
+}
+
+/* Base custom definitions */
+body {
+  font-family: var(--font-body);
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  [data-scroll-active="true"] .scroll-activate-image {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.03);
+  }
+
+  [data-scroll-active="true"] .scroll-activate-overlay {
+    opacity: 0.1;
+  }
+
+  [data-scroll-active="true"] .scroll-activate-card {
+    transform: translateY(-5px);
+  }
+
+  [data-scroll-active="true"] .scroll-activate-text {
+    color: var(--color-primary);
+  }
+
+  [data-scroll-active="true"] .scroll-activate-gallery-overlay {
+    opacity: 1;
+  }
+
+  [data-scroll-active="true"] .scroll-activate-border-secondary {
+    border-color: color-mix(in srgb, var(--color-secondary) 30%, transparent);
+  }
+
+  [data-scroll-active="true"] .scroll-activate-border-primary {
+    border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+}
