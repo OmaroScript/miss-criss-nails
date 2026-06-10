@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { Sparkles, CalendarRange } from "lucide-react";
 
 interface HeroProps {
@@ -8,13 +7,10 @@ interface HeroProps {
 
 export default function Hero({ onOpenMenu, onScrollToBooking }: HeroProps) {
   return (
-    <header className="relative min-h-[92vh] flex items-center justify-center pt-28 md:pt-36 pb-16 overflow-hidden">
-      {/* Immersive background with slight scale zoom on mount */}
-      <motion.div
-        initial={{ scale: 1.15, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.5 }}
-        transition={{ duration: 1.8, ease: "easeOut" }}
-        className="absolute inset-0 z-0 bg-cover bg-center mix-blend-luminosity"
+    <header className="relative min-h-[100svh] md:min-h-[92vh] flex items-center justify-center pt-28 md:pt-36 pb-16 overflow-hidden isolate">
+      {/* Keep the first viewport visible before client-side hydration finishes. */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-50 md:mix-blend-luminosity"
         style={{
           backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAE4Krs-kHJJUFrLEE5DaeCnI8_QQ9mXThprokuVL-rFJqVGBN9xJ8uBFcL8GD7Zcj1TO-VsLBKtl1YxC8rFLic-8JPtF41FLksMh224gdQIToHeeew2b324JB88GAL4QdN4btzdh30-xJSsF5Akd5hRLhkRracUeB6DYlsdsxOIe3DtU5mnXvCS0o4RY7HoA8G0eQ8tSPdt3ftawzjO2g214JndoobK7puj__kwxdJxkpU9Y6FjhS008S13dPyJEBMlBw6IcuGrpw")`,
         }}
@@ -22,53 +18,33 @@ export default function Hero({ onOpenMenu, onScrollToBooking }: HeroProps) {
 
       {/* Extreme Dark Vignette & Color Glow gradients overlay */}
       <div className="absolute inset-0 z-0 bg-gradient-to-t from-background via-transparent to-background/50 pointer-events-none" />
-      <div className="absolute top-1/4 right-1/10 w-[40rem] h-[40rem] bg-secondary/5 rounded-full filter blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 left-1/10 w-[40rem] h-[40rem] bg-primary/10 rounded-full filter blur-[120px] pointer-events-none z-0" />
+      <div className="hidden md:block absolute top-1/4 right-1/10 w-[40rem] h-[40rem] bg-secondary/5 rounded-full filter blur-[120px] pointer-events-none z-0" />
+      <div className="hidden md:block absolute bottom-1/4 left-1/10 w-[40rem] h-[40rem] bg-primary/10 rounded-full filter blur-[120px] pointer-events-none z-0" />
 
       {/* Main Content Grid */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Editorial Headings */}
         <div className="lg:col-span-7 flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center gap-2 mb-4"
-          >
+          <div className="flex items-center gap-2 mb-4">
             <span className="h-[1px] w-12 bg-secondary" />
             <span className="font-label text-xs uppercase tracking-[0.4em] text-secondary">
               Nails By Cris Studio
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.4 }}
-            className="font-display text-5xl sm:text-7xl xl:text-8xl text-primary font-bold tracking-tighter leading-[0.9] drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]"
-          >
+          <h1 className="font-display text-5xl sm:text-7xl xl:text-8xl text-primary font-bold tracking-tighter leading-[0.9] drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
             REALZA
             <br />
             <span className="text-white">TU ESTILO.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.8 }}
-            className="font-display text-lg italic text-secondary/70 mt-6 tracking-wide hidden sm:block"
-          >
+          <p className="font-display text-lg italic text-secondary/70 mt-6 tracking-wide hidden sm:block">
             Escultura precisa · Glamour intenso · Detalles impecables
-          </motion.p>
+          </p>
         </div>
 
         {/* Floating Luxury Glass card */}
-        <motion.div
-          initial={{ opacity: 0, x: 40, y: 20 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="lg:col-span-5 w-full"
-        >
+        <div className="lg:col-span-5 w-full">
           <div className="glass-card p-8 md:p-10 border border-secondary/25 relative">
             {/* Fine Light Cathing Corner Accents */}
             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-secondary/60" />
@@ -101,7 +77,7 @@ export default function Hero({ onOpenMenu, onScrollToBooking }: HeroProps) {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </header>
   );
