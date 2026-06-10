@@ -101,17 +101,3 @@ Ejecuta:
 npm run lint
 npm run build
 ```
-
-## Despliegue
-
-El proyecto puede desplegarse en cualquier plataforma compatible con Next.js,
-por ejemplo Vercel, Netlify o un servidor Node.js. Para produccion, configura
-las variables de entorno necesarias en la plataforma de despliegue.
-
-## Origen
-
-Proyecto generado inicialmente desde Google AI Studio:
-
-```text
-https://ai.studio/apps/81584b0b-54de-4aed-b74a-b1c0befd6b7c
-```
